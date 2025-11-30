@@ -1,0 +1,4 @@
+# Components
+
+This directory will contain all React components organized by feature.
+
