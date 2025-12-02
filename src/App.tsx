@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import About from './pages/About';
 import BoxList from './pages/BoxList';
 import BoxDetail from './pages/BoxDetail';
+import BoxCreate from './pages/BoxCreate';
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
             element={(
               <ProtectedRoute>
                 <BoxList />
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/boxes/create"
+            element={(
+              <ProtectedRoute>
+                <BoxCreate />
               </ProtectedRoute>
             )}
           />
