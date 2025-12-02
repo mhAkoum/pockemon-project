@@ -11,6 +11,7 @@ import BoxDetail from './pages/BoxDetail';
 import BoxCreate from './pages/BoxCreate';
 import PokemonDetail from './pages/PokemonDetail';
 import PokemonAdd from './pages/PokemonAdd';
+import PokemonSearch from './pages/PokemonSearch';
 
 function App() {
   return (
@@ -78,9 +79,7 @@ function App() {
             path="/pokemons/search"
             element={(
               <ProtectedRoute>
-                <div className="container mx-auto p-4">
-                  <p>Search Pokémon - Coming soon</p>
-                </div>
+                <PokemonSearch />
               </ProtectedRoute>
             )}
           />
