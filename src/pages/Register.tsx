@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { getErrorMessage } from '../utils/errors';
 
 function Register() {
   const navigate = useNavigate();
@@ -24,7 +25,10 @@ function Register() {
       await subscribe(formData);
       navigate('/');
     } catch (err) {
-      setError('Registration failed. Please check your information.');
+      // eslint-disable-next-line no-console
+      console.error('Registration error:', err);
+      const errorMessage = getErrorMessage(err);
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

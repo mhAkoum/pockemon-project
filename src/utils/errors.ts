@@ -9,9 +9,29 @@ export interface ApiError {
 export function handleApiError(error: unknown): ApiError {
   if (error instanceof AxiosError) {
     if (error.response) {
+      const { data: responseData, status } = error.response;
+      let message = `Request failed with status ${status}`;
+
+      if (typeof responseData === 'string') {
+        message = responseData || message;
+      } else if (responseData?.message) {
+        message = responseData.message;
+      } else if (responseData?.error) {
+        message = responseData.error;
+      } else if (responseData && typeof responseData === 'object') {
+        const errorText = JSON.stringify(responseData);
+        if (errorText !== '{}') {
+          message = errorText;
+        }
+      }
+
+      if (status === 500) {
+        message = `Server error: ${message}. Please check the backend logs or try again.`;
+      }
+
       return {
-        message: error.response.data?.message || `Request failed with status ${error.response.status}`,
-        status: error.response.status,
+        message,
+        status,
         code: error.code,
       };
     }

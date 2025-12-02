@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { getErrorMessage } from '../utils/errors';
 
 function Login() {
   const navigate = useNavigate();
@@ -18,7 +19,8 @@ function Login() {
       await login(formData);
       navigate('/');
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      const errorMessage = getErrorMessage(err);
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

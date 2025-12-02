@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import About from './pages/About';
+import BoxList from './pages/BoxList';
+import BoxDetail from './pages/BoxDetail';
 
 function App() {
   return (
@@ -21,9 +23,15 @@ function App() {
             path="/boxes"
             element={(
               <ProtectedRoute>
-                <div className="container mx-auto p-4">
-                  <p>My Boxes - Coming soon</p>
-                </div>
+                <BoxList />
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/boxes/:boxId"
+            element={(
+              <ProtectedRoute>
+                <BoxDetail />
               </ProtectedRoute>
             )}
           />
