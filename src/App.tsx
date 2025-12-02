@@ -10,6 +10,7 @@ import BoxList from './pages/BoxList';
 import BoxDetail from './pages/BoxDetail';
 import BoxCreate from './pages/BoxCreate';
 import PokemonDetail from './pages/PokemonDetail';
+import PokemonAdd from './pages/PokemonAdd';
 
 function App() {
   return (
@@ -62,6 +63,14 @@ function App() {
                 <div className="container mx-auto p-4">
                   <p>Search Trainer - Coming soon</p>
                 </div>
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/pokemons/add"
+            element={(
+              <ProtectedRoute>
+                <PokemonAdd />
               </ProtectedRoute>
             )}
           />

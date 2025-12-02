@@ -93,12 +93,20 @@ function BoxDetail() {
         </p>
       </div>
 
-      <div className="mb-4">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+      <div className="mb-4 flex justify-between items-center">
+        <h2 className="text-2xl font-semibold text-gray-800">
           Pokémons (
           {box.pokemons.length}
           /30)
         </h2>
+        {box.pokemons.length < 30 && (
+          <Link
+            to="/pokemons/add"
+            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            Add Pokémon
+          </Link>
+        )}
       </div>
 
       {box.pokemons.length === 0 ? (
