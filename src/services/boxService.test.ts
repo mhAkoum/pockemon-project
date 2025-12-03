@@ -66,4 +66,3 @@ describe('boxService', () => {
     expect(apiClient.delete).toHaveBeenCalledWith('/trainers/1/boxes/1');
   });
 });
-

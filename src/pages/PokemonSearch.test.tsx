@@ -31,8 +31,20 @@ describe('PokemonSearch', () => {
 
   it('displays pokemons when loaded', async () => {
     const mockPokemons = [
-      { id: 1, species: 'Pikachu', name: 'Pika', level: 25, trainerId: 1 },
-      { id: 2, species: 'Charizard', name: 'Char', level: 50, trainerId: 1 },
+      {
+        id: 1,
+        species: 'Pikachu',
+        name: 'Pika',
+        level: 25,
+        trainerId: 1,
+      },
+      {
+        id: 2,
+        species: 'Charizard',
+        name: 'Char',
+        level: 50,
+        trainerId: 1,
+      },
     ];
     vi.mocked(pokemonService.searchPokemons).mockResolvedValue(mockPokemons as never);
 
@@ -101,4 +113,3 @@ describe('PokemonSearch', () => {
     });
   });
 });
-

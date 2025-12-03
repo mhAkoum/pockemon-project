@@ -49,8 +49,12 @@ describe('TrainerSearch', () => {
 
   it('displays trainers when loaded', async () => {
     const mockTrainers = [
-      { id: 1, firstName: 'John', lastName: 'Doe', login: 'john@example.com' },
-      { id: 2, firstName: 'Jane', lastName: 'Smith', login: 'jane@example.com' },
+      {
+        id: 1, firstName: 'John', lastName: 'Doe', login: 'john@example.com',
+      },
+      {
+        id: 2, firstName: 'Jane', lastName: 'Smith', login: 'jane@example.com',
+      },
     ];
     vi.mocked(trainerService.searchTrainers).mockResolvedValue(mockTrainers as never);
 
@@ -127,4 +131,3 @@ describe('TrainerSearch', () => {
     });
   });
 });
-

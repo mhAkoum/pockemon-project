@@ -1,4 +1,6 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import {
+  describe, it, expect, beforeEach, vi,
+} from 'vitest';
 import { storage } from './storage';
 
 describe('storage', () => {
@@ -69,4 +71,3 @@ describe('storage', () => {
     });
   });
 });
-

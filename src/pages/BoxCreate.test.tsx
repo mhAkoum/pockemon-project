@@ -3,7 +3,7 @@ import {
 } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from '../contexts/AuthContext';
 import { boxService } from '../services/boxService';
 import { storage } from '../utils/storage';
@@ -161,4 +161,3 @@ describe('BoxCreate', () => {
     });
   });
 });
-

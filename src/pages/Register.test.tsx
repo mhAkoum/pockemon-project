@@ -122,4 +122,3 @@ describe('Register', () => {
     expect(submitButton).toHaveTextContent('Signing up...');
   });
 });
-

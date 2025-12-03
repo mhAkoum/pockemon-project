@@ -109,4 +109,3 @@ describe('BoxList', () => {
     expect(screen.getByRole('button', { name: /retry/i })).toBeInTheDocument();
   });
 });
-

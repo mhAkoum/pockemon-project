@@ -21,7 +21,7 @@ describe('tradeService', () => {
     const mockResponse = { data: [{ id: 1, statusCode: 'PROPOSITION' }] };
     vi.mocked(apiClient.get).mockResolvedValue(mockResponse);
 
-    const params = { page: 0, pageSize: 20, orderBy: 'DESC' };
+    const params = { page: 0, pageSize: 20, orderBy: 'DESC' as const };
     const result = await tradeService.getTrades(1, params);
 
     expect(apiClient.get).toHaveBeenCalledWith('/trainers/1/trades', { params });
@@ -50,10 +50,9 @@ describe('tradeService', () => {
     vi.mocked(apiClient.post).mockResolvedValue(mockResponse);
 
     const data = {
-      senderId: 1,
       receiverId: 2,
-      senderPokemons: [1, 2],
-      receiverPokemons: [3],
+      pokemonsOfferedIds: [1, 2],
+      pokemonsWantedIds: [3],
     };
     const result = await tradeService.createTrade(data);
 
@@ -65,11 +64,10 @@ describe('tradeService', () => {
     const mockResponse = { data: { id: 1 } };
     vi.mocked(apiClient.patch).mockResolvedValue(mockResponse);
 
-    const data = { statusCode: 'ACCEPTED' };
+    const data = { statusCode: 'ACCEPTED' as const };
     const result = await tradeService.updateTrade(1, data);
 
     expect(apiClient.patch).toHaveBeenCalledWith('/trades/1', data);
     expect(result).toEqual(mockResponse.data);
   });
 });
-

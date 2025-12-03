@@ -73,4 +73,3 @@ describe('trainerService', () => {
     expect(apiClient.delete).toHaveBeenCalledWith('/trainers/1');
   });
 });
-

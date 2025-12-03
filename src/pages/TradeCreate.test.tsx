@@ -4,7 +4,6 @@ import {
 import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { AuthProvider } from '../contexts/AuthContext';
-import { tradeService } from '../services/tradeService';
 import { trainerService } from '../services/trainerService';
 import { storage } from '../utils/storage';
 import TradeCreate from './TradeCreate';
@@ -124,4 +123,3 @@ describe('TradeCreate', () => {
     });
   });
 });
-

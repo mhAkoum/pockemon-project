@@ -57,7 +57,10 @@ describe('pokemonService', () => {
       species: 'Pikachu',
       name: 'Pika',
       level: 25,
-      boxId: 1,
+      genderTypeCode: 'NOT_DEFINED' as const,
+      size: 10,
+      weight: 10,
+      isShiny: false,
     };
     const result = await pokemonService.createPokemon(data);
 
@@ -84,4 +87,3 @@ describe('pokemonService', () => {
     expect(apiClient.delete).toHaveBeenCalledWith('/pokemons/1');
   });
 });
-

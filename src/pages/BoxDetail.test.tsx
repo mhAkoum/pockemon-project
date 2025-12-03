@@ -2,7 +2,7 @@ import {
   describe, it, expect, vi, beforeEach,
 } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { AuthProvider } from '../contexts/AuthContext';
 import { boxService } from '../services/boxService';
 import { storage } from '../utils/storage';
@@ -54,8 +54,18 @@ describe('BoxDetail', () => {
       id: 1,
       name: 'Test Box',
       pokemons: [
-        { id: 1, species: 'Pikachu', name: 'Pika', level: 25 },
-        { id: 2, species: 'Charizard', name: 'Char', level: 50 },
+        {
+          id: 1,
+          species: 'Pikachu',
+          name: 'Pika',
+          level: 25,
+        },
+        {
+          id: 2,
+          species: 'Charizard',
+          name: 'Char',
+          level: 50,
+        },
       ],
     };
     vi.mocked(boxService.getBox).mockResolvedValue(mockBox as never);
@@ -117,4 +127,3 @@ describe('BoxDetail', () => {
     expect(screen.getByRole('button', { name: /back to boxes/i })).toBeInTheDocument();
   });
 });
-

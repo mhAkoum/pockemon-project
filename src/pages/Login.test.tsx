@@ -116,4 +116,3 @@ describe('Login', () => {
     expect(submitButton).toHaveTextContent('Logging in...');
   });
 });
-

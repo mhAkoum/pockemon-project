@@ -134,10 +134,10 @@ describe('PokemonAdd', () => {
 
     await user.type(screen.getByLabelText(/species/i), 'Pikachu');
     await user.type(screen.getByLabelText(/name/i), 'Pika');
-    
+
     const boxSelect = screen.getByLabelText(/box/i);
     await user.selectOptions(boxSelect, '1');
-    
+
     const submitButton = screen.getByRole('button', { name: /add pokémon/i });
     await user.click(submitButton);
 
@@ -146,4 +146,3 @@ describe('PokemonAdd', () => {
     }, { timeout: 3000 });
   });
 });
-
