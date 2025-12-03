@@ -35,11 +35,11 @@ function Login() {
 
   return (
     <main className="container mx-auto p-4 max-w-md">
-      <div className="bg-white rounded-lg shadow-md p-6 mt-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Login</h1>
+      <div className="pokemon-box mt-8">
+        <h1 className="pokemon-title text-center mb-6">Login</h1>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+          <div className="pokemon-alert mb-4" role="alert">
             {error}
           </div>
         )}
@@ -47,7 +47,7 @@ function Login() {
         <form onSubmit={handleSubmit} aria-label="Login form">
           <div className="mb-4">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="login" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="login" className="pokemon-label block">
               Email
             </label>
             <input
@@ -57,14 +57,14 @@ function Login() {
               value={formData.login}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
 
           <div className="mb-6">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="password" className="pokemon-label block">
               Password
             </label>
             <input
@@ -74,7 +74,7 @@ function Login() {
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
@@ -82,16 +82,16 @@ function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+            className="w-full pokemon-button-green disabled:opacity-50"
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        <p className="mt-4 text-center pokemon-text">
           Don&apos;t have an account?
           {' '}
-          <Link to="/register" className="text-blue-600 hover:underline">
+          <Link to="/register" className="text-pokemon-blue hover:underline font-bold">
             Sign up
           </Link>
         </p>

@@ -21,9 +21,9 @@ import TradeCreate from './pages/TradeCreate';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-grow">
+      <div className="flex-grow bg-gradient-to-b from-pokemon-grass-light via-pokemon-water-light to-pokemon-grass-light">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

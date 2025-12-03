@@ -64,24 +64,26 @@ function BoxList() {
   return (
     <main className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">My Boxes</h1>
+        <h1 className="pokemon-title">My Boxes</h1>
         <Link
           to="/boxes/create"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="pokemon-button-green"
         >
           Create Box
         </Link>
       </div>
 
       {boxes.length === 0 ? (
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
-          <p className="text-gray-600 mb-4">You don&apos;t have any boxes yet.</p>
-          <Link
-            to="/boxes/create"
-            className="text-blue-600 hover:underline"
-          >
-            Create your first box
-          </Link>
+        <div className="pokemon-box max-w-md mx-auto text-center">
+          <div className="pokemon-box-inner">
+            <p className="pokemon-text mb-4">You don&apos;t have any boxes yet.</p>
+            <Link
+              to="/boxes/create"
+              className="pokemon-button-blue inline-block"
+            >
+              Create your first box
+            </Link>
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -89,14 +91,16 @@ function BoxList() {
             <Link
               key={box.id}
               to={`/boxes/${box.id}`}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+              className="pokemon-card"
             >
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">{box.name}</h2>
-              <p className="text-gray-600">
-                Box ID:
-                {' '}
-                {box.id}
-              </p>
+              <div className="pokemon-box-inner">
+                <h2 className="pokemon-subtitle mb-2">{box.name}</h2>
+                <p className="pokemon-text">
+                  Box ID:
+                  {' '}
+                  {box.id}
+                </p>
+              </div>
             </Link>
           ))}
         </div>

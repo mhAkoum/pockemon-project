@@ -2,16 +2,185 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #7CB342 0%, #42A5F5 50%, #7CB342 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #root {
   min-height: 100vh;
 }
 
+/* Pokémon Game UI Styles */
+.pokemon-box {
+  @apply bg-gray-200 border-4 border-gray-800 rounded-lg p-4 shadow-pokemon;
+  background: linear-gradient(180deg, #E0E0E0 0%, #BDBDBD 100%);
+}
+
+.pokemon-box-inner {
+  @apply bg-white border-2 border-gray-600 rounded p-3;
+}
+
+.pokemon-button {
+  @apply px-4 py-2 rounded-lg font-bold text-white border-2 border-black shadow-pokemon;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.pokemon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.pokemon-button:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.pokemon-button-red {
+  @apply pokemon-button bg-pokemon-red border-pokemon-red-dark;
+}
+
+.pokemon-button-orange {
+  @apply pokemon-button bg-pokemon-orange border-pokemon-orange-dark;
+}
+
+.pokemon-button-green {
+  @apply pokemon-button bg-pokemon-green border-pokemon-green-dark;
+}
+
+.pokemon-button-blue {
+  @apply pokemon-button bg-pokemon-blue border-pokemon-blue-dark;
+}
+
+.pokemon-hp-bar {
+  @apply h-4 rounded border-2 border-black;
+  background: linear-gradient(90deg, #4CAF50 0%, #81C784 100%);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.pokemon-hp-bar-low {
+  background: linear-gradient(90deg, #F44336 0%, #E57373 100%);
+}
+
+.pokemon-hp-bar-medium {
+  background: linear-gradient(90deg, #FFEB3B 0%, #FFF176 100%);
+}
+
+.pokemon-card {
+  @apply pokemon-box hover:shadow-lg transition-all duration-200;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-4px);
+}
+
+.pokemon-input {
+  @apply pokemon-box-inner w-full px-3 py-2 border-2 border-gray-400 focus:border-pokemon-blue focus:outline-none;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+}
+
+.pokemon-select {
+  @apply pokemon-box-inner w-full px-3 py-2 border-2 border-gray-400 focus:border-pokemon-blue focus:outline-none;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+}
+
+.pokemon-title {
+  @apply text-3xl font-bold text-gray-800 mb-4;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+}
+
+.pokemon-subtitle {
+  @apply text-xl font-bold text-gray-700 mb-2;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
+}
+
+.pokemon-label {
+  @apply block text-gray-800 font-bold mb-2;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+}
+
+.pokemon-text {
+  @apply text-gray-700;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+}
+
+.pokemon-header {
+  @apply bg-pokemon-blue text-white border-b-4 border-pokemon-blue-dark shadow-pokemon;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pokemon-alert {
+  @apply pokemon-box-inner border-4 border-red-600 bg-red-100 text-red-800;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+}
+
+.pokemon-success {
+  @apply pokemon-box-inner border-4 border-green-600 bg-green-100 text-green-800;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+}
+
+/* Poké Ball Icon Styling */
+.pokeball-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: linear-gradient(180deg, #FF0000 0%, #FF0000 50%, #FFFFFF 50%, #FFFFFF 100%);
+  position: relative;
+}
+
+.pokeball-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #000;
+  border: 1px solid #333;
+}
+
+.pokeball-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #000;
+}

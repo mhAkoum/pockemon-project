@@ -43,11 +43,11 @@ function Register() {
 
   return (
     <main className="container mx-auto p-4 max-w-md">
-      <div className="bg-white rounded-lg shadow-md p-6 mt-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Sign Up</h1>
+      <div className="pokemon-box mt-8">
+        <h1 className="pokemon-title text-center mb-6">Sign Up</h1>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+          <div className="pokemon-alert mb-4" role="alert">
             {error}
           </div>
         )}
@@ -55,7 +55,7 @@ function Register() {
         <form onSubmit={handleSubmit} aria-label="Registration form">
           <div className="mb-4">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="firstName" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="firstName" className="pokemon-label">
               First Name
             </label>
             <input
@@ -65,14 +65,14 @@ function Register() {
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
 
           <div className="mb-4">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="lastName" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="lastName" className="pokemon-label">
               Last Name
             </label>
             <input
@@ -82,14 +82,14 @@ function Register() {
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
 
           <div className="mb-4">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="login" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="login" className="pokemon-label">
               Email
             </label>
             <input
@@ -99,14 +99,14 @@ function Register() {
               value={formData.login}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
 
           <div className="mb-4">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="birthDate" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="birthDate" className="pokemon-label">
               Date of Birth
             </label>
             <input
@@ -116,14 +116,14 @@ function Register() {
               value={formData.birthDate}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
 
           <div className="mb-6">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="password" className="pokemon-label">
               Password
             </label>
             <input
@@ -133,7 +133,7 @@ function Register() {
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pokemon-input"
               aria-required="true"
             />
           </div>
@@ -141,16 +141,16 @@ function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+            className="w-full pokemon-button-blue disabled:opacity-50"
           >
             {loading ? 'Signing up...' : 'Sign Up'}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        <p className="mt-4 text-center pokemon-text">
           Already have an account?
           {' '}
-          <Link to="/login" className="text-blue-600 hover:underline">
+          <Link to="/login" className="text-pokemon-blue hover:underline font-bold">
             Login
           </Link>
         </p>

@@ -11,10 +11,11 @@ function Header() {
   };
 
   return (
-    <header className="bg-blue-600 text-white shadow-md" role="banner">
+    <header className="pokemon-header" role="banner">
       <nav className="container mx-auto px-4 py-3" aria-label="Main navigation">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold hover:text-blue-200" aria-label="Home - PC Pokémon">
+          <Link to="/" className="text-xl font-bold hover:opacity-80 transition-opacity flex items-center gap-2" aria-label="Home - PC Pokémon">
+            <span className="pokeball-icon" />
             PC Pokémon
           </Link>
 
@@ -23,14 +24,14 @@ function Header() {
               <>
                 <Link
                   to="/login"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-green hover:opacity-90"
                   aria-label="Login"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-blue hover:opacity-90"
                   aria-label="Sign up"
                 >
                   Sign Up
@@ -40,35 +41,35 @@ function Header() {
               <>
                 <Link
                   to="/boxes"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-blue hover:opacity-90"
                   aria-label="My boxes"
                 >
                   My Boxes
                 </Link>
                 <Link
                   to="/trades"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-orange hover:opacity-90"
                   aria-label="My trades"
                 >
                   My Trades
                 </Link>
                 <Link
                   to="/trainers/search"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-green hover:opacity-90"
                   aria-label="Search for a trainer"
                 >
                   Search Trainer
                 </Link>
                 <Link
                   to="/pokemons/search"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-green hover:opacity-90"
                   aria-label="Search for a Pokémon"
                 >
                   Search Pokémon
                 </Link>
                 <Link
                   to="/profile"
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-blue hover:opacity-90"
                   aria-label="User profile"
                 >
                   Profile
@@ -76,7 +77,7 @@ function Header() {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="pokemon-button-red hover:opacity-90"
                   aria-label="Logout"
                 >
                   Logout
