@@ -12,6 +12,12 @@ import BoxCreate from './pages/BoxCreate';
 import PokemonDetail from './pages/PokemonDetail';
 import PokemonAdd from './pages/PokemonAdd';
 import PokemonSearch from './pages/PokemonSearch';
+import TrainerProfile from './pages/TrainerProfile';
+import TrainerSearch from './pages/TrainerSearch';
+import ProfileEdit from './pages/ProfileEdit';
+import TradeList from './pages/TradeList';
+import TradeDetail from './pages/TradeDetail';
+import TradeCreate from './pages/TradeCreate';
 
 function App() {
   return (
@@ -51,9 +57,23 @@ function App() {
             path="/trades"
             element={(
               <ProtectedRoute>
-                <div className="container mx-auto p-4">
-                  <p>My Trades - Coming soon</p>
-                </div>
+                <TradeList />
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/trades/create"
+            element={(
+              <ProtectedRoute>
+                <TradeCreate />
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/trades/:tradeId"
+            element={(
+              <ProtectedRoute>
+                <TradeDetail />
               </ProtectedRoute>
             )}
           />
@@ -61,9 +81,15 @@ function App() {
             path="/trainers/search"
             element={(
               <ProtectedRoute>
-                <div className="container mx-auto p-4">
-                  <p>Search Trainer - Coming soon</p>
-                </div>
+                <TrainerSearch />
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/trainers/:trainerId"
+            element={(
+              <ProtectedRoute>
+                <TrainerProfile />
               </ProtectedRoute>
             )}
           />
@@ -95,9 +121,15 @@ function App() {
             path="/profile"
             element={(
               <ProtectedRoute>
-                <div className="container mx-auto p-4">
-                  <p>Profile - Coming soon</p>
-                </div>
+                <TrainerProfile />
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/profile/edit"
+            element={(
+              <ProtectedRoute>
+                <ProfileEdit />
               </ProtectedRoute>
             )}
           />
